@@ -36,3 +36,16 @@ h1, h2, h3 {
     padding-top: 50px;
     padding-bottom: 100px;
 }
+
+.navbar-default .navbar-brand,  .navbar-default .navbar-nav > li > a  {
+    color: black;
+}
+
+.navbar-default .navbar-brand:hover{
+    color: black;
+    opacity:0.6;
+}
+.navbar-default .navbar-nav > li > a:hover  {
+    color: black;
+    opacity:0.6;
+}
