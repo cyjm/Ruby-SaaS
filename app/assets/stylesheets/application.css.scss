@@ -50,5 +50,14 @@ h1, h2, h3 {
 }
 .navbar-brand {
     font-family: Roboto, sans-serif;
-    font-weight: 800;
+    font-weight: 900;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background: white;
+}
+.navbar-default .navbar-toggle{
+    border:2px solid white;
+    &:hover, &focus{
+        background-color:#E9E4F0;
+    }
 }
