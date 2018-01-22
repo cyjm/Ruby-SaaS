@@ -13,10 +13,8 @@
             
             <div class="well">
                 <% if params[:plan] == '2' %>
-                    <h3>Pro account sign up form</h3>
                     <%= render "pro_form" %>
                 <% else %>
-                    <h3>Basic account sign up form</h3>
                     <%= render "basic_form" %>
                 <% end %>
                 
