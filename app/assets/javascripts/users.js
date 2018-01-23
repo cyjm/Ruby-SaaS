@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function(){
     //When user clicks form submit btn
     submitBtn.click(function(event){
         
-        //prevent defauls submission behavior.
+        //Prevent defauls submission behavior.
         event.preventDefault();
         submitBtn.val("Processing").prop('disabled', true);
         
@@ -19,7 +19,7 @@ $(document).on('turbolinks:load', function(){
             expMonth = $('#card_month').val(),
             expYear = $('#card_year').val();
         
-        //Use stirpe js lib to check for card errors
+        //Validate errors with the Stripe js library
         var error = false;
         
         //Validate card number
@@ -39,7 +39,7 @@ $(document).on('turbolinks:load', function(){
         }
         
         if (error){
-            //If card error exist, dont send to stripe. Make submit btn available.
+            //If card error exist, dont send to Stripe. Make submit btn available.
             submitBtn.prop('disabled', false).val("Sign Up");
         } else {
             //Send the card info to Stripe.
@@ -53,8 +53,8 @@ $(document).on('turbolinks:load', function(){
         return false;
     });
     
-    //Stripe will return the card token.
     function stripeResponseHandler(status, response){
+        //Grab token from Stripe response
         var token = response.id;
         
         //Inject card token as hidden field into form.
