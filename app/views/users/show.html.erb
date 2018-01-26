@@ -1,1 +1,14 @@
-<%= @user.inspect %>
+<div>
+    <div>
+        <div>
+            <%= @user.profile.first_name %>
+            <%= @user.profile.last_name %>
+            <%= @user.profile.job_title %>
+            <% if current_user.plan_id == 2 %>
+                <%= @user.profile.phone_num %><br/>
+                <%= @user.profile.contact_email %><br/>
+            <% end %>
+            <%= @user.profile.description %>
+        </div>
+    </div>
+</div>
