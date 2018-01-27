@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
         @profile = Profile.new
     end
     
-    # POST /users/:user_id/profile
+    # POST to /users/:user_id/profile
     def create
         # Make sure we have a user filling out forms
         @user = User.find(params[:user_id])
@@ -17,14 +17,29 @@ class ProfilesController < ApplicationController
             redirect_to user_path( params[:user_id] )
         else
             render action: :new
-            flash[:warning] = "Sorry, something went wrong."
+            flash[:warning] = "Sorry, something went wrong, please try again."
         end
     end
     
-    #GET /users/:user_id/profile/edit
+    # GET to /users/:user_id/profile/edit
     def edit
         @user = User.find( params[:user_id] )
         @profile = @user.profile
+    end
+    
+    # PUT to /users/:user_id/profile/
+    def update
+        @user = User.find( params[:user_id] )
+        @profile = @user.profile
+        # Mass assign edited profile attributes and update
+        if @profile.update_attributes(profile_params)
+            flash[:success] = "Profile has been updated!"
+            # Redirect user to their profile page
+            redirect_to user_path(id: params[:user_id])
+        else
+            flash[:warning] = "Sorry, something went wrong, please try again."
+            render action: :edit
+        end
     end
     
     private
